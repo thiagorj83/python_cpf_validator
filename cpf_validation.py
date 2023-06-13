@@ -1,6 +1,6 @@
 import re
 
-class ValidadeCpfNumber:
+class ValidateCpfNumber:
 
     def validate(self,cpf: str) -> bool:
         
@@ -15,8 +15,10 @@ class ValidadeCpfNumber:
         expected_digit2 = (sum_of_products * 10 % 11) % 10
         
         if (re.match("^[0-9]{11}$", cpf) or re.match(r'\d{3}.\d{3}.\d{3}-\d{2}$', cpf)) and not len(set(numbers)) == 1 and numbers[9] == expected_digit1 and numbers[10] == expected_digit2:
-            return print('O C.P.F. '+ str(cpf) + ' é válido!')
+            print('O C.P.F. '+ str(cpf) + ' é válido!')
+            return True
         else:
-            return print('O C.P.F. '+ str(cpf) + ' não é válido!')
+            print('O C.P.F. '+ str(cpf) + ' não é válido!')
+            return False
         
         
